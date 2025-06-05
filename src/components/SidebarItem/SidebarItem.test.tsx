@@ -1,8 +1,8 @@
 import { render, screen } from "@testing-library/react";
-import { describe } from "node:test";
-import { expect, it, vi } from "vitest";
+import { expect, it, vi, describe } from "vitest";
 import { SidebarItem } from "./SidebarItem";
 import { capitalize } from "@/helpers/capitalize";
+import userEvent from "@testing-library/user-event";
 
 const defaultProps = {
   pokemon: {
@@ -17,10 +17,29 @@ vi.mock("@/helpers/capitalize", () => ({
   capitalize: vi.fn(() => capitalizeName),
 }));
 
+const selectPokemonMockFn = vi.fn();
+
+vi.mock("@/hooks/useSelectedPokemon", () => ({
+  useSelectedPokemon: () => ({
+    selectPokemon: selectPokemonMockFn,
+  }),
+}));
+
 describe("SidebarItem", () => {
   it("should render props", () => {
     render(<SidebarItem {...defaultProps} />);
     expect(capitalize).toHaveBeenCalledWith(defaultProps.pokemon.name);
     expect(screen.getByText(capitalizeName)).toBeInTheDocument();
+  });
+  it("should update selected pokemon onClick", async () => {
+    const user = userEvent.setup();
+    render(<SidebarItem {...defaultProps} />);
+
+    const getSidebarItem = screen.getByText(capitalizeName);
+    await user.click(getSidebarItem);
+
+    expect(selectPokemonMockFn).toHaveBeenLastCalledWith({
+      ...defaultProps.pokemon,
+    });
   });
 });
