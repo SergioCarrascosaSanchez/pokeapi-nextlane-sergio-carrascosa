@@ -25,18 +25,18 @@ export function PokemonDetail() {
     );
   }
 
-  if (!selectedPokemon || !pokemon) {
-    return (
-      <div className="pokemon-detail-container">
-        <p>No Pokémon selected</p>
-      </div>
-    );
-  }
-
   if (error) {
     return (
       <div className="pokemon-detail-container">
         <p>{error}</p>
+      </div>
+    );
+  }
+
+  if (!selectedPokemon || !pokemon) {
+    return (
+      <div className="pokemon-detail-container">
+        <p>No Pokémon selected</p>
       </div>
     );
   }
@@ -50,13 +50,15 @@ export function PokemonDetail() {
         ))}
       </div>
       <h2>{getCount(selectedPokemon.name)}</h2>
-      <Image
-        src={pokemon.sprites.front_default}
-        width={300}
-        height={300}
-        alt={`${selectedPokemon.name}-sprite`}
-        onClick={() => incrementCount(selectedPokemon.name)}
-      />
+      <div className="image-wrapper">
+        <Image
+          src={pokemon.sprites.front_default}
+          width={300}
+          height={300}
+          alt={`${selectedPokemon.name}-sprite`}
+          onClick={() => incrementCount(selectedPokemon.name)}
+        />
+      </div>
     </div>
   );
 }

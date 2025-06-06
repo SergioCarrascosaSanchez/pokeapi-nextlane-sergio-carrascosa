@@ -3,6 +3,7 @@
   place-content: center;
   height: 100vh;
   text-align: center;
+  gap: 10px;
 }
 
 .pokemon-types-container {
@@ -12,4 +13,19 @@
 
 .pokemon-detail-container > img {
   cursor: pointer;
+}
+
+.image-wrapper {
+  display: grid;
+  place-content: center;
+  background-color: var(--background-medium);
+  border: 5px solid var(--borders-medium);
+  border-radius: 100%;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.image-wrapper:hover {
+  background-color: var(--primary-transparent);
+  border-color: var(--primary);
 }
