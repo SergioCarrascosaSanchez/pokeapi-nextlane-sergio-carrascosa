@@ -1,8 +1,8 @@
 import { describe, expect, it } from "vitest";
 import { usePokemon } from "./usePokemon";
 import { renderHook, waitFor } from "@testing-library/react";
-import { PokemonMock } from "../mocks/pokemon";
-import { server } from "../mocks/node";
+import { PokemonMock } from "../../mocks/pokemon";
+import { server } from "../../mocks/node";
 import { http, HttpResponse } from "msw";
 
 const props = {

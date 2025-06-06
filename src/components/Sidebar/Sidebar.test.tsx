@@ -10,7 +10,7 @@ vi.mock("../SidebarItem/SidebarItem", () => ({
   ),
 }));
 
-vi.mock("@/hooks/usePokemonSummaryList", () => ({
+vi.mock("@/hooks/usePokemonSummaryList/usePokemonSummaryList", () => ({
   usePokemonSummaryList: () => ({
     pokemons: [
       { name: "bulbasaur", url: "url_1" },

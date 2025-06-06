@@ -9,7 +9,7 @@ import { capitalize } from "@/helpers/capitalize";
 const usePokemonMock = vi.fn();
 const useSelectedPokemonMock = vi.fn();
 
-vi.mock("@/hooks/usePokemon", () => ({
+vi.mock("@/hooks/usePokemon/usePokemon", () => ({
   usePokemon: () => usePokemonMock(),
 }));
 

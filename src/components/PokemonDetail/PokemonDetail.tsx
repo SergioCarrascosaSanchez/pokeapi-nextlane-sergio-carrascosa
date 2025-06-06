@@ -1,12 +1,12 @@
 "use client";
 import { useSelectedPokemon } from "@/hooks/useSelectedPokemon";
-import { usePokemon } from "@/hooks/usePokemon";
+import { usePokemon } from "@/hooks/usePokemon/usePokemon";
 import { capitalize } from "@/helpers/capitalize";
 import Image from "next/image";
 import "./PokemonDetail.css";
 import { Loader } from "../Loader/Loader";
 import { TypeChip } from "../TypeChip/TypeChip";
-import { usePokemonCount } from "@/hooks/usePokemonCount";
+import { usePokemonCount } from "@/hooks/usePokemonCount/usePokemonCount";
 
 export function PokemonDetail() {
   const { selectedPokemon } = useSelectedPokemon();

@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { usePokemonSummaryList } from "@/hooks/usePokemonSummaryList";
+import { usePokemonSummaryList } from "@/hooks/usePokemonSummaryList/usePokemonSummaryList";
 import { SidebarItem } from "../SidebarItem/SidebarItem";
 import "./Sidebar.css";
 import Image from "next/image";
