@@ -5,7 +5,7 @@ export async function GET(
   request: Request,
   { params }: { params: { name: string } }
 ) {
-  const { name } = params;
+  const { name } = await params;
 
   try {
     const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${name}`);
