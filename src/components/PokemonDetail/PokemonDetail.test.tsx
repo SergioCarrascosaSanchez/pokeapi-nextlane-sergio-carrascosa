@@ -4,7 +4,7 @@ import { PokemonDetail } from "./PokemonDetail";
 import { PokemonMock } from "@/mocks/pokemon";
 import { PokemonSummaryMock } from "@/mocks/pokemonSummary";
 import userEvent from "@testing-library/user-event";
-import { capitalize } from "@/helpers/capitalize";
+import { capitalize } from "@/helpers/capitalize/capitalize";
 
 const usePokemonMock = vi.fn();
 const useSelectedPokemonMock = vi.fn();

@@ -13,11 +13,8 @@ export const handlers = [
     });
   }),
 
-  http.get("/api/pokemon/:name", async ({ params }) => {
+  http.get("/api/pokemon/:name", async ({}) => {
     await delay();
-    if (params.name === "bulbasaur") {
-      return HttpResponse.json(PokemonMock);
-    }
-    return HttpResponse.json({ error: "Not found" }, { status: 404 });
+    return HttpResponse.json(PokemonMock);
   }),
 ];

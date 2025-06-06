@@ -1,7 +1,7 @@
 "use client";
 import { useSelectedPokemon } from "@/hooks/useSelectedPokemon";
 import { usePokemon } from "@/hooks/usePokemon/usePokemon";
-import { capitalize } from "@/helpers/capitalize";
+import { capitalize } from "@/helpers/capitalize/capitalize";
 import Image from "next/image";
 import "./PokemonDetail.css";
 import { Loader } from "../Loader/Loader";

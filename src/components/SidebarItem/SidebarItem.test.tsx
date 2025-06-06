@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import { expect, it, vi, describe } from "vitest";
 import { SidebarItem } from "./SidebarItem";
-import { capitalize } from "@/helpers/capitalize";
+import { capitalize } from "@/helpers/capitalize/capitalize";
 import userEvent from "@testing-library/user-event";
 import { PokemonSummaryMock } from "@/mocks/pokemonSummary";
 
@@ -11,7 +11,7 @@ const defaultProps = {
 
 const capitalizeName = "Bulbasaur";
 
-vi.mock("@/helpers/capitalize", () => ({
+vi.mock("@/helpers/capitalize/capitalize", () => ({
   capitalize: vi.fn(() => capitalizeName),
 }));
 

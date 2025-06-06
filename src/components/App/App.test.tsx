@@ -7,7 +7,7 @@ import {
   PokemonSummaryMock2,
 } from "@/mocks/pokemonSummary";
 import { PokemonMock } from "@/mocks/pokemon";
-import { capitalize } from "@/helpers/capitalize";
+import { capitalize } from "@/helpers/capitalize/capitalize";
 
 vi.mock("@/hooks/usePokemonSummaryList/usePokemonSummaryList", () => ({
   usePokemonSummaryList: () => ({

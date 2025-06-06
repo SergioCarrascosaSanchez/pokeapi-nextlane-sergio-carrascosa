@@ -1,6 +1,6 @@
 import { PokemonSummary } from "@/types/PokemonSummary";
 import "./SidebarItem.css";
-import { capitalize } from "@/helpers/capitalize";
+import { capitalize } from "@/helpers/capitalize/capitalize";
 import { useSelectedPokemon } from "@/hooks/useSelectedPokemon";
 
 interface SidebarItemProps {
