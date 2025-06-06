@@ -1,0 +1,11 @@
+.type-chip {
+  padding: 4px 10px;
+  border-radius: 999px;
+  color: white;
+  font-weight: bold;
+  font-size: 12px;
+  display: inline-block;
+  margin: 2px;
+  background-color: var(--type-unknown);
+  border: 1px solid white;
+}
