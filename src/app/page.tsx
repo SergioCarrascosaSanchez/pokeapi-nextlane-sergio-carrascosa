@@ -1,14 +1,5 @@
-import { PokemonDetail } from "@/components/PokemonDetail/PokemonDetail";
-import { Sidebar } from "@/components/Sidebar/Sidebar";
-import { SidebarContentLayout } from "@/components/SidebarContentLayout/SidebarContentLayout";
-import { SelectedPokemonProvider } from "@/context/SelectedPokemonContext";
+import Home from "@/components/Home";
 
-export default function Home() {
-  return (
-    <SelectedPokemonProvider>
-      <SidebarContentLayout sidebar={<Sidebar />}>
-        <PokemonDetail />
-      </SidebarContentLayout>
-    </SelectedPokemonProvider>
-  );
+export default function MainPage() {
+  return <Home />;
 }
