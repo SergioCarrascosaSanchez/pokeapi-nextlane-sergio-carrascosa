@@ -1,0 +1,15 @@
+.pokemon-detail-container {
+  display: grid;
+  place-content: center;
+  height: 100vh;
+  text-align: center;
+}
+
+.pokemon-types-container {
+  display: flex;
+  justify-content: center;
+}
+
+.pokemon-detail-container > img {
+  cursor: pointer;
+}
