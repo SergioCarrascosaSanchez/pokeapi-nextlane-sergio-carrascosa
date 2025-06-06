@@ -8,9 +8,14 @@ interface SidebarItemProps {
 }
 
 export function SidebarItem({ pokemon }: SidebarItemProps) {
-  const { selectPokemon } = useSelectedPokemon();
+  const { selectPokemon, selectedPokemon } = useSelectedPokemon();
   return (
-    <div className="sidebar-item" onClick={() => selectPokemon(pokemon)}>
+    <div
+      className={`sidebar-item ${
+        selectedPokemon?.name === pokemon.name ? "sidebar-item-selected" : ""
+      }`}
+      onClick={() => selectPokemon(pokemon)}
+    >
       <p>{capitalize(pokemon.name)}</p>
     </div>
   );
