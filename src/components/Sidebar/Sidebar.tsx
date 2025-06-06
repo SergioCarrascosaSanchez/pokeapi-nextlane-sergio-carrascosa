@@ -31,11 +31,11 @@ export function Sidebar() {
         {pokemons.map((pokemon) => (
           <SidebarItem key={pokemon.name} pokemon={pokemon} />
         ))}
-      </div>
-      <div className="load-more-button-container">
-        <button className="button-primary" onClick={incrementOffset}>
-          Load more
-        </button>
+        <div className="load-more-button-container">
+          <button className="button-primary" onClick={incrementOffset}>
+            Load more
+          </button>
+        </div>
       </div>
     </div>
   );
