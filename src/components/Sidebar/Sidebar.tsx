@@ -6,7 +6,7 @@ import "./Sidebar.css";
 import Image from "next/image";
 
 export function Sidebar() {
-  const { pokemons } = usePokemonSummaryList();
+  const { pokemons, incrementOffset } = usePokemonSummaryList();
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -31,6 +31,11 @@ export function Sidebar() {
         {pokemons.map((pokemon) => (
           <SidebarItem key={pokemon.name} pokemon={pokemon} />
         ))}
+      </div>
+      <div className="load-more-button-container">
+        <button className="button-primary" onClick={incrementOffset}>
+          Load more
+        </button>
       </div>
     </div>
   );

@@ -8,11 +8,10 @@
   justify-content: space-between;
   align-items: center;
   padding: 16px;
-  /* elimina el margin auto que rompe el layout */
 }
 
 .sidebar-toggle {
-  display: none; /* hidden by default (desktop) */
+  display: none;
   background: none;
   border: none;
   cursor: pointer;
@@ -22,6 +21,12 @@
 .sidebar-list {
   display: flex;
   flex-direction: column;
+}
+
+.load-more-button-container {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0px;
 }
 
 @media (max-width: 768px) {

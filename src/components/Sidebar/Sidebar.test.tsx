@@ -10,6 +10,8 @@ vi.mock("../SidebarItem/SidebarItem", () => ({
   ),
 }));
 
+const incrementFn = vi.fn();
+
 vi.mock("@/hooks/usePokemonSummaryList/usePokemonSummaryList", () => ({
   usePokemonSummaryList: () => ({
     pokemons: [
@@ -18,6 +20,7 @@ vi.mock("@/hooks/usePokemonSummaryList/usePokemonSummaryList", () => ({
     ],
     loading: false,
     error: null,
+    incrementOffset: incrementFn,
   }),
 }));
 
@@ -46,5 +49,14 @@ describe("Sidebar", () => {
 
     await user.click(burgerMenu);
     expect(list).not.toHaveClass("open");
+  });
+
+  it("should call increment offset if Load more is clicked", async () => {
+    const user = userEvent.setup();
+    render(<Sidebar />);
+
+    const loadMoreButton = screen.getByText(/load more/i);
+    await user.click(loadMoreButton);
+    expect(incrementFn).toHaveBeenCalledOnce();
   });
 });

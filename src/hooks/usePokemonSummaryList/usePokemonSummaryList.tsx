@@ -6,14 +6,15 @@ export function usePokemonSummaryList() {
   const [pokemons, setPokemons] = useState<PokemonSummary[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-
+  const [offset, setOffset] = useState<number>(0);
+  const offsetIncrement = 20;
   useEffect(() => {
     async function fetchData() {
       try {
-        const res = await fetch("/api/pokemon-list");
+        const res = await fetch(`/api/pokemon-list/${offset}`);
         if (!res.ok) throw new Error("Error fetching Pokémon");
         const data: PokemonSummaryApiResponse = await res.json();
-        setPokemons(data.results);
+        setPokemons([...pokemons, ...data.results]);
       } catch (err) {
         setError((err as Error).message);
       } finally {
@@ -22,7 +23,11 @@ export function usePokemonSummaryList() {
     }
 
     fetchData();
-  }, []);
+  }, [offset]);
 
-  return { pokemons, loading, error };
+  function incrementOffset() {
+    setOffset(offset + offsetIncrement);
+  }
+
+  return { pokemons, loading, error, incrementOffset };
 }
