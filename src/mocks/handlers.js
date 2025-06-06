@@ -1,5 +1,6 @@
 import { delay, http, HttpResponse } from "msw";
 import { PokemonMock } from "./pokemon";
+import { PokemonSummaryMock, PokemonSummaryMock2 } from "./pokemonSummary";
 
 export const handlers = [
   http.get("/api/pokemon-list", async () => {
@@ -8,7 +9,7 @@ export const handlers = [
       count: 1,
       next: null,
       previous: null,
-      results: [{ name: "bulbasaur", url: "bulbasaur_url" }],
+      results: [PokemonSummaryMock, PokemonSummaryMock2],
     });
   }),
 
