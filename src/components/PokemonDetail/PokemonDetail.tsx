@@ -6,6 +6,7 @@ import Image from "next/image";
 import "./PokemonDetail.css";
 import { Loader } from "../Loader/Loader";
 import { TypeChip } from "../TypeChip/TypeChip";
+import { usePokemonCount } from "@/hooks/usePokemonCount";
 
 export function PokemonDetail() {
   const { selectedPokemon } = useSelectedPokemon();
@@ -13,6 +14,8 @@ export function PokemonDetail() {
   const { loading, pokemon, error } = usePokemon({
     name: selectedPokemon?.name,
   });
+
+  const { getCount, incrementCount } = usePokemonCount();
 
   if (loading) {
     return (
@@ -46,11 +49,13 @@ export function PokemonDetail() {
           <TypeChip key={type.type.name} type={type.type.name} />
         ))}
       </div>
+      <h2>{getCount(selectedPokemon.name)}</h2>
       <Image
         src={pokemon.sprites.front_default}
         width={300}
         height={300}
         alt={`${selectedPokemon.name}-sprite`}
+        onClick={() => incrementCount(selectedPokemon.name)}
       />
     </div>
   );
