@@ -3,6 +3,9 @@
   cursor: pointer;
   margin: 5px 10px;
   border: 1px solid transparent;
+  display: flex;
+  gap: 8px;
+  align-items: center;
 }
 
 .sidebar-item:hover,
@@ -14,4 +17,16 @@
 .sidebar-item-selected {
   border: 1px solid var(--primary);
   font-weight: 600;
+}
+
+.pokemon-id {
+  font-size: 12px;
+  background-color: var(--background-medium);
+  border-radius: 100%;
+  width: 20px;
+  height: 20px;
+  display: grid;
+  place-content: center;
+  border: 1px solid var(--borders-medium);
+  color: var(--subtle);
 }

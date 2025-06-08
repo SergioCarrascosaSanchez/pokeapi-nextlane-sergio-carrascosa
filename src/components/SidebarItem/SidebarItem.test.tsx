@@ -7,6 +7,7 @@ import { PokemonSummaryMock } from "@/mocks/pokemonSummary";
 
 const defaultProps = {
   pokemon: PokemonSummaryMock,
+  id: 10,
 };
 
 const capitalizeName = "Bulbasaur";
@@ -29,6 +30,7 @@ describe("SidebarItem", () => {
     render(<SidebarItem {...defaultProps} />);
     expect(capitalize).toHaveBeenCalledWith(defaultProps.pokemon.name);
     expect(screen.getByText(capitalizeName)).toBeInTheDocument();
+    expect(screen.getByText(defaultProps.id)).toBeInTheDocument();
   });
   it("should update selected pokemon onClick", async () => {
     const user = userEvent.setup();

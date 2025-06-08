@@ -28,8 +28,8 @@ export function Sidebar() {
         className={`sidebar-list ${isOpen ? "open" : ""}`}
         data-testid="sidebar-list"
       >
-        {pokemons.map((pokemon) => (
-          <SidebarItem key={pokemon.name} pokemon={pokemon} />
+        {pokemons.map((pokemon, index) => (
+          <SidebarItem key={pokemon.name} pokemon={pokemon} id={index + 1} />
         ))}
         <div className="load-more-button-container">
           <button className="button-primary" onClick={incrementOffset}>

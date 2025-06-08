@@ -5,9 +5,10 @@ import { useSelectedPokemon } from "@/hooks/useSelectedPokemon";
 
 interface SidebarItemProps {
   pokemon: PokemonSummary;
+  id: number;
 }
 
-export function SidebarItem({ pokemon }: SidebarItemProps) {
+export function SidebarItem({ pokemon, id }: SidebarItemProps) {
   const { selectPokemon, selectedPokemon } = useSelectedPokemon();
   return (
     <div
@@ -16,6 +17,9 @@ export function SidebarItem({ pokemon }: SidebarItemProps) {
       }`}
       onClick={() => selectPokemon(pokemon)}
     >
+      <div className="pokemon-id">
+        <p className="pokemon-id">{id}</p>
+      </div>
       <p>{capitalize(pokemon.name)}</p>
     </div>
   );
