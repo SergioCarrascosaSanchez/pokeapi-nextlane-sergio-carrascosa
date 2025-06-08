@@ -7,6 +7,8 @@ export async function GET(
 ) {
   const { name } = await params;
 
+  console.log(name);
+
   try {
     const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${name}`);
     if (!res.ok) throw new Error("Failed to fetch Pokémon");

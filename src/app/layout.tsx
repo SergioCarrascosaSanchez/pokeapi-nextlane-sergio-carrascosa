@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, PT_Serif } from "next/font/google";
 import "./globals.css";
+import { Sidebar } from "@/components/Sidebar/Sidebar";
+import { SidebarContentLayout } from "@/components/SidebarContentLayout/SidebarContentLayout";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,7 +29,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${ptSerif.variable}`}>
-        {children}
+        <SidebarContentLayout sidebar={<Sidebar />}>
+          {children}
+        </SidebarContentLayout>
       </body>
     </html>
   );

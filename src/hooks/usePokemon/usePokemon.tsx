@@ -13,7 +13,7 @@ export function usePokemon({ name }: usePokemonProps) {
   async function fetchPokemon() {
     setLoading(true);
     try {
-      const response = await fetch(`api/pokemon/${name}`);
+      const response = await fetch(`/api/pokemon/${name}`);
       if (!response.ok) throw new Error("Error fetching Pokémon");
       const pokemon: Pokemon = await response.json();
       setPokemon(pokemon);

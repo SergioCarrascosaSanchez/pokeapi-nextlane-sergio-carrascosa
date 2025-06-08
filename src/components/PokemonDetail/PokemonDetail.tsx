@@ -1,5 +1,4 @@
 "use client";
-import { useSelectedPokemon } from "@/hooks/useSelectedPokemon";
 import { usePokemon } from "@/hooks/usePokemon/usePokemon";
 import { capitalize } from "@/helpers/capitalize/capitalize";
 import Image from "next/image";
@@ -8,12 +7,14 @@ import { Loader } from "../Loader/Loader";
 import { TypeChip } from "../TypeChip/TypeChip";
 import { usePokemonCount } from "@/hooks/usePokemonCount/usePokemonCount";
 import { PokemonInformationItem } from "../PokemonInformationItem/PokemonInformationItem";
+import { useParams } from "next/navigation";
+import { PokemonNotSelected } from "../PokemonNotSelected/PokemonNotSelected";
 
 export function PokemonDetail() {
-  const { selectedPokemon } = useSelectedPokemon();
+  const { name } = useParams<{ name?: string }>();
 
   const { loading, pokemon, error } = usePokemon({
-    name: selectedPokemon?.name,
+    name,
   });
 
   const { getCount, incrementCount } = usePokemonCount();
@@ -34,17 +35,13 @@ export function PokemonDetail() {
     );
   }
 
-  if (!selectedPokemon || !pokemon) {
-    return (
-      <div className="pokemon-detail-container center">
-        <p>No Pokémon selected</p>
-      </div>
-    );
+  if (!name || !pokemon) {
+    return <PokemonNotSelected />;
   }
 
   return (
     <div className="pokemon-detail-container">
-      <h1>{capitalize(selectedPokemon.name)}</h1>
+      <h1>{capitalize(name)}</h1>
 
       <div className="pokemon-detail-sections-container">
         <section className="container pokemon-image-container">
@@ -52,8 +49,8 @@ export function PokemonDetail() {
             src={pokemon.sprites.front_default}
             width={300}
             height={300}
-            alt={`${selectedPokemon.name}-sprite`}
-            onClick={() => incrementCount(selectedPokemon.name)}
+            alt={`${name}-sprite`}
+            onClick={() => incrementCount(name)}
           />
         </section>
         <section className="container">
@@ -69,10 +66,7 @@ export function PokemonDetail() {
               </div>
             }
           />
-          <PokemonInformationItem
-            title="Count"
-            value={getCount(selectedPokemon.name)}
-          />
+          <PokemonInformationItem title="Count" value={getCount(name)} />
         </section>
       </div>
     </div>

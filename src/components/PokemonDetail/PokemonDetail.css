@@ -1,14 +1,3 @@
-.pokemon-detail-container {
-  margin: 200px;
-}
-
-.pokemon-detail-container.center {
-  display: grid;
-  place-content: center;
-  height: auto;
-  height: 50vh;
-}
-
 .pokemon-detail-container > h1 {
   margin-bottom: 20px;
   width: 100%;
@@ -52,22 +41,4 @@
 
 .pokemon-detail-container > img {
   cursor: pointer;
-}
-
-@media (max-width: 1000px) {
-  .pokemon-detail-container {
-    margin: 200px 100px;
-  }
-}
-
-@media (max-width: 800px) {
-  .pokemon-detail-container {
-    margin: 200px 80px;
-  }
-}
-
-@media (max-width: 768px) {
-  .pokemon-detail-container {
-    margin: 30px 80px;
-  }
 }

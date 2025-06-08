@@ -7,14 +7,14 @@ import userEvent from "@testing-library/user-event";
 import { capitalize } from "@/helpers/capitalize/capitalize";
 
 const usePokemonMock = vi.fn();
-const useSelectedPokemonMock = vi.fn();
+const useParamsMock = vi.fn();
 
 vi.mock("@/hooks/usePokemon/usePokemon", () => ({
   usePokemon: () => usePokemonMock(),
 }));
 
-vi.mock("@/hooks/useSelectedPokemon", () => ({
-  useSelectedPokemon: () => useSelectedPokemonMock(),
+vi.mock("next/navigation", () => ({
+  useParams: () => useParamsMock(),
 }));
 
 describe("PokemonDetail", () => {
@@ -23,11 +23,7 @@ describe("PokemonDetail", () => {
   });
 
   it("should render loading state if loading", () => {
-    useSelectedPokemonMock.mockReturnValue({
-      selectPokemon: vi.fn(),
-      selectedPokemon: { name: "bulbasaur" },
-    });
-
+    useParamsMock.mockReturnValue({ name: "bulbasaur" });
     usePokemonMock.mockReturnValue({
       pokemon: undefined,
       loading: true,
@@ -40,11 +36,7 @@ describe("PokemonDetail", () => {
   });
 
   it("should render error state if error", () => {
-    useSelectedPokemonMock.mockReturnValue({
-      selectPokemon: vi.fn(),
-      selectedPokemon: { name: "bulbasaur" },
-    });
-
+    useParamsMock.mockReturnValue({ name: "bulbasaur" });
     usePokemonMock.mockReturnValue({
       pokemon: PokemonMock,
       loading: false,
@@ -56,11 +48,7 @@ describe("PokemonDetail", () => {
   });
 
   it("should render empty state if no pokemon fetched but pokemon selected", () => {
-    useSelectedPokemonMock.mockReturnValue({
-      selectPokemon: vi.fn(),
-      selectedPokemon: { name: "bulbasaur" },
-    });
-
+    useParamsMock.mockReturnValue({ name: "bulbasaur" });
     usePokemonMock.mockReturnValue({
       pokemon: undefined,
       loading: false,
@@ -72,11 +60,7 @@ describe("PokemonDetail", () => {
   });
 
   it("should render empty state if no selectedPokemon", () => {
-    useSelectedPokemonMock.mockReturnValue({
-      selectPokemon: vi.fn(),
-      selectedPokemon: null,
-    });
-
+    useParamsMock.mockReturnValue({ name: undefined });
     usePokemonMock.mockReturnValue({
       pokemon: undefined,
       loading: false,
@@ -88,11 +72,7 @@ describe("PokemonDetail", () => {
   });
 
   it("should render pokemon name, types, and click count", () => {
-    useSelectedPokemonMock.mockReturnValue({
-      selectPokemon: vi.fn(),
-      selectedPokemon: PokemonSummaryMock,
-    });
-
+    useParamsMock.mockReturnValue({ name: "bulbasaur" });
     usePokemonMock.mockReturnValue({
       pokemon: PokemonMock,
       loading: false,
@@ -116,16 +96,13 @@ describe("PokemonDetail", () => {
   });
 
   it("should call increment on image click", async () => {
-    useSelectedPokemonMock.mockReturnValue({
-      selectPokemon: vi.fn(),
-      selectedPokemon: PokemonSummaryMock,
-    });
-
+    useParamsMock.mockReturnValue({ name: "bulbasaur" });
     usePokemonMock.mockReturnValue({
       pokemon: PokemonMock,
       loading: false,
       error: null,
     });
+
     const user = userEvent.setup();
     render(<PokemonDetail />);
     const pokemonImage = screen.getByAltText(

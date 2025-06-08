@@ -1,7 +1,7 @@
 import { PokemonSummary } from "@/types/PokemonSummary";
 import "./SidebarItem.css";
 import { capitalize } from "@/helpers/capitalize/capitalize";
-import { useSelectedPokemon } from "@/hooks/useSelectedPokemon";
+import { useParams, useRouter } from "next/navigation";
 
 interface SidebarItemProps {
   pokemon: PokemonSummary;
@@ -9,13 +9,14 @@ interface SidebarItemProps {
 }
 
 export function SidebarItem({ pokemon, id }: SidebarItemProps) {
-  const { selectPokemon, selectedPokemon } = useSelectedPokemon();
+  const { name } = useParams<{ name?: string }>();
+  const router = useRouter();
   return (
     <div
       className={`sidebar-item ${
-        selectedPokemon?.name === pokemon.name ? "sidebar-item-selected" : ""
+        name === pokemon.name ? "sidebar-item-selected" : ""
       }`}
-      onClick={() => selectPokemon(pokemon)}
+      onClick={() => router.push(`/pokemon/${pokemon.name}`)}
     >
       <div className="pokemon-id">
         <p className="pokemon-id">{id}</p>

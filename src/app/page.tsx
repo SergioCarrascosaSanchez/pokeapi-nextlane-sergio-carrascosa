@@ -1,5 +1,5 @@
-import App from "@/components/App/App";
+import { PokemonNotSelected } from "@/components/PokemonNotSelected/PokemonNotSelected";
 
 export default function MainPage() {
-  return <App />;
+  return <PokemonNotSelected />;
 }

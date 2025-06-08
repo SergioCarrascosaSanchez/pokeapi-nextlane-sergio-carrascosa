@@ -98,6 +98,17 @@ button {
   transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
 
+.pokemon-detail-container {
+  margin: 10%;
+}
+
+.pokemon-detail-container.center {
+  display: grid;
+  place-content: center;
+  height: auto;
+  height: 50vh;
+}
+
 .button-primary {
   background-color: var(--primary);
 
