@@ -3,11 +3,9 @@ import { NextResponse } from "next/server";
 
 export async function GET(
   request: Request,
-  { params }: { params: { name: string } }
+  { params }: { params: Promise<{ name: string }> }
 ) {
   const { name } = await params;
-
-  console.log(name);
 
   try {
     const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${name}`);
