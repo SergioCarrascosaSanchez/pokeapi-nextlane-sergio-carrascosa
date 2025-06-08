@@ -28,7 +28,7 @@ export function PokemonDetail() {
 
   if (error) {
     return (
-      <div className="pokemon-detail-containe centerr">
+      <div className="pokemon-detail-container center">
         <p>{error}</p>
       </div>
     );
