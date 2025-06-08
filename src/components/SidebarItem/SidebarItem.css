@@ -1,14 +1,17 @@
 .sidebar-item {
-  padding: 15px 25px;
+  padding: 10px 14px;
   cursor: pointer;
-  border-top: 1px solid var(--borders-light);
+  margin: 5px 10px;
+  border: 1px solid transparent;
 }
 
 .sidebar-item:hover,
 .sidebar-item-selected {
   background-color: var(--primary-transparent);
+  border-radius: 4px;
 }
 
-.sidebar-item > p {
+.sidebar-item-selected {
+  border: 1px solid var(--primary);
   font-weight: 600;
 }

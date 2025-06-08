@@ -4,9 +4,10 @@
   --primary: #f03d33;
   --primary-transparent: #f03d3320;
   --primary-hover: #bf251d;
-  --borders-light: #e6e6e6;
+  --borders-light: #ededed;
   --borders-medium: #c7c7c7;
   --background-medium: #f0f0f0;
+  --subtle: #6d778a;
   --type-normal: #a8a77a;
   --type-fighting: #c22e28;
   --type-flying: #a98ff3;
@@ -38,9 +39,10 @@ body {
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-size: 16px;
 }
 
 * {
@@ -56,8 +58,30 @@ a {
   text-decoration: none;
 }
 
+h1,
+h2 {
+  font-family: var(--font-pt_serif);
+  font-weight: 700;
+}
+
 h1 {
-  font-size: 40px;
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 1.8rem;
+}
+
+h3 {
+  font-size: 1em;
+  color: var(--subtle);
+  text-transform: uppercase;
+}
+
+.divider {
+  height: 1px;
+  width: 100%;
+  background-color: var(--borders-medium);
 }
 
 button {

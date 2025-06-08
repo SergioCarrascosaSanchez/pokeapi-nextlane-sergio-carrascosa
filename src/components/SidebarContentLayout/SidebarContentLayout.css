@@ -1,9 +1,16 @@
-/* app/components/Layout.css */
-
 .layout {
   display: flex;
   flex-direction: column;
   height: 100vh;
+}
+
+.layout-content {
+  background-image: radial-gradient(
+    var(--borders-light) 0.9px,
+    var(--background) 0.9px
+  );
+  background-size: 16px 16px;
+  background-color: var(--background);
 }
 
 @media (min-width: 768px) {
@@ -13,7 +20,7 @@
 
   .layout-sidebar {
     width: 250px;
-    border-right: 1px solid #e0e0e0;
+    border-right: 1px solid var(--borders-light);
     flex-shrink: 0;
     height: 100vh;
     overflow-y: auto;
@@ -29,7 +36,7 @@
 @media (max-width: 767px) {
   .layout-sidebar {
     width: 100%;
-    border-bottom: 1px solid #e0e0e0;
+    border-bottom: 1px solid var(--borders-light);
   }
 
   .layout-content {
