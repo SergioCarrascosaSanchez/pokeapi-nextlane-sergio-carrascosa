@@ -6,13 +6,17 @@ This project is an interactive Pokémon gallery built as part of the technical t
 
 ## 🚀 Features
 
-✅ Pokémon list in a sidebar  
-✅ Pokémon selection and detail view  
-✅ Pokémon image with a click counter  
-✅ Responsive design (sidebar on the left for desktop, stacked for mobile)  
-✅ React Hooks and Context API  
-✅ Modular, clean, and fully typed code with TypeScript  
-✅ Testing with Vitest + React Testing Library + MSW  
+- Pokémon list in a sidebar  
+- Pokémon selection and detail view  
+- Pokémon image with a click counter  
+- Counter persisted at LocalStorage
+- Responsive design (sidebar on the left for desktop, stacked for mobile)  
+- React Hooks
+- NextJS App Router
+- NextJS API Routes
+- Modular, clean, and fully typed code with TypeScript  
+- Testing with Vitest + React Testing Library + MSW
+- Deployed [here](https://pokeapi-nextlane-sergio-carrascosa.onrender.com/)  
 
 ---
 
