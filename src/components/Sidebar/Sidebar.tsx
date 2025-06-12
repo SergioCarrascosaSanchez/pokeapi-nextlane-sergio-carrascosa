@@ -1,19 +1,16 @@
 "use client";
-import { useState } from "react";
-import { usePokemonSummaryList } from "@/hooks/usePokemonSummaryList/usePokemonSummaryList";
-import { SidebarItem } from "../SidebarItem/SidebarItem";
-import "./Sidebar.css";
+import { SidebarContent } from "../SidebarContent/SidebarContent";
 import Image from "next/image";
+import "./Sidebar.css";
+import { useState } from "react";
 
 export function Sidebar() {
-  const { pokemons, incrementOffset } = usePokemonSummaryList();
   const [isOpen, setIsOpen] = useState(false);
 
   return (
     <div className="sidebar">
       <div className="sidebar-header">
         <Image src="/pokeapi.png" alt="PokéAPI logo" width={185} height={105} />
-
         <Image
           src="/burger-menu.svg"
           alt="Toggle menu"
@@ -28,14 +25,7 @@ export function Sidebar() {
         className={`sidebar-list ${isOpen ? "open" : ""}`}
         data-testid="sidebar-list"
       >
-        {pokemons.map((pokemon, index) => (
-          <SidebarItem key={pokemon.name} pokemon={pokemon} id={index + 1} />
-        ))}
-        <div className="load-more-button-container">
-          <button className="button-primary" onClick={incrementOffset}>
-            Load more
-          </button>
-        </div>
+        <SidebarContent />
       </div>
     </div>
   );

@@ -1,0 +1,4 @@
+.sidebar-centered {
+  display: grid;
+  place-content: center;
+}
