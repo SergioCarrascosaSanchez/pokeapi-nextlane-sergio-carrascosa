@@ -29,7 +29,7 @@ describe("usePokemon", () => {
 
   it("should getPokemonDetails when finish fecthing", async () => {
     server.resetHandlers(
-      http.get("/api/pokemon/:name", async ({ params }) => {
+      http.get("/api/pokemon/:name", async () => {
         return new HttpResponse(null, { status: 500 });
       })
     );
