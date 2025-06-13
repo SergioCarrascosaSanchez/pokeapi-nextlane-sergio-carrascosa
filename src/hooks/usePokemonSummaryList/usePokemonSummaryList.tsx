@@ -13,7 +13,9 @@ export function usePokemonSummaryList() {
     async function fetchData() {
       setLoading(true);
       try {
-        const res = await fetch(`/api/pokemon-list/${offset}`);
+        const res = await fetch(
+          `/api/pokemon-list?offset=${offset}&limit=${offsetIncrement}`
+        );
         if (!res.ok) throw new Error("Error fetching Pokémon");
         const data: PokemonSummaryApiResponse = await res.json();
         setPokemons((prev) => [...prev, ...data.results]);

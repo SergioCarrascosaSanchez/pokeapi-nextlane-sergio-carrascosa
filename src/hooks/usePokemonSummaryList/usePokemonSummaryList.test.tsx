@@ -56,7 +56,7 @@ describe("usePokemonSummaryList", () => {
 
   it("should return error if api call failed", async () => {
     server.resetHandlers(
-      http.get("/api/pokemon-list/0", async () => {
+      http.get("/api/pokemon-list", async () => {
         return new HttpResponse(null, { status: 500 });
       })
     );
